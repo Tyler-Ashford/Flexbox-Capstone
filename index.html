@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/d34fea0878.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <title>Flexbox Capstone</title>
+
+  <style>
+
+    body {
+          margin: 0px;
+          font-family: 'Playfair Display', serif;
+    }
+
+        .navbar {
+            background: skyblue;
+        }
+        .navbar div {
+            display: none;
+        }
+        .navbar .toggle,
+        .navbar .brand {
+            display: inline-block;
+        }
+        .navbar .link {
+            display: block;
+            text-align: center;
+            padding: 1em;
+            text-decoration: none;
+            background: darkblue;
+            color: white;
+        }
+        .navbar .link:hover,
+        .navbar .link:active {
+            color: darkblue;
+            background: whitesmoke;
+        }
+        .navbar .brand {
+            width: 10em;
+            text-align: center;
+            padding: 1em;
+            color: white;
+        }
+        .navbar a {
+            text-decoration: none;
+        }
+        .navbar .toggle {
+            padding: 1em;
+            color: white;
+        }
+        @media (min-width: 48em) {
+            .navbar {
+                display: flex;
+            }
+            .navbar .nav-left,
+            .navbar .nav-right {
+                display: flex;
+                flex: 1;
+            }
+            .navbar .link {
+                width: auto;
+            }
+            .navbar .nav-right {
+                justify-content: flex-end;
+            }
+            .navbar .toggle {
+                display: none;
+            }
+        }
+        @media (min-width: 48em) {
+            .navbar div {
+                display: flex;
+            }
+        }
+        @media (max-width: 48em) {
+            .navbar.active .toggle {
+                background: darkblue;
+                color: white;
+            }
+            .navbar .brand {
+                text-align: left;
+            }
+            .navbar.active div {
+                display: block;
+            }
+        }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="#" class="toggle" id="navHamburger">
+      <i class="fa-solid fa-bars"></i>
+    </a>
+    <a href="#" class="brand">Tyler Ashford</a>
+
+    <div class="nav-left">
+      <a href="#" class="link">link 1</a>
+      <a href="#" class="link">link 2</a>
+    </div>
+
+    <div class="nav-right">
+      <a href="#" class="link">link 3</a>
+    </div>
+  </div>
+</body>
+<script>
+    let navHamburger = document.querySelector('#navHamburger');
+    navHamburger.addEventListener('click', (e) => {
+        navHamburger.parentElement.classList.toggle('active');
+    })
+</script>
+</html>
